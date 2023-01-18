@@ -3,14 +3,19 @@
  * 有一个promise出现reject，则直接reject
  * resolve时的顺序与promsie数组传入顺序一致
  */
-Promise.all = (p) => {
+Promise._all = (p) => {
   let result = [];
+  let count = 0
   return new Promise((resolve, reject) => {
+
+    // 可迭代对象为空则返回已resolve的promise
+    if(p.length === 0) resolve([])
+
     for (let i = 0; i < p.length; i++) {
       p[i]
         .then((res) => {
-          result.push(res);
-          if (result.length === p.length) resolve(result);
+          result[i] = res;
+          if (++count === p.length) resolve(result);
         })
         .catch((err) => {
           reject(err);
@@ -40,7 +45,7 @@ let p4 = new Promise((resolve, reject) => {
   }, 500);
 });
 
-let res = Promise.all([p1, p2, p3, p4])
+let res = Promise._all([p1, p2, p3, p4])
   .then((res) => {
     console.log(res);
   })
