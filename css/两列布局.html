@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 两列布局，左列定宽右列自适应 */
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      /* 第一种flex布局 */
+      /* .box {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+    }
+    .left {
+      width: 200px;
+      background: red;
+    }
+    .right {
+      flex: 1;
+      background: blue;
+    } */
+      /* 第二种绝对元素 */
+      /* .box {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+    .left {
+      width: 200px;
+      background: red;
+      height: 100vh;
+    }
+    .right {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 200px;
+      height: 100vh;
+      background: blue;
+    } */
+
+      /* margin-left法 */
+      /* .box {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        height: 100vh;
+      }
+      .left {
+        height: 100%;
+        position: absolute;
+        width: 200px;
+        background: red;
+      }
+      .right {
+        height: 100%;
+        margin-left: 200px;
+        background: blue;
+        
+      } */
+      /* float + margin-left */
+      .box {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        height: 100vh;
+      }
+      .left {
+        height: 100%;
+        float: left;
+        width: 200px;
+        background: red;
+      }
+      .right {
+        height: 100%;
+        margin-left: 200px;
+        background: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="left">haha</div>
+      <div class="right">asd</div>
+    </div>
+  </body>
+</html>
