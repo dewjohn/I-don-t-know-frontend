@@ -141,15 +141,13 @@ type obj = {
 
 type DeepReadonlyResult = DeepReadonly<obj>['a']; // 此时 b 并没有加上 readonly
 
-type DeepReadonly2<Obj extends Record<string, any>> =
-    Obj extends any
-        ? {
-            readonly [Key in keyof Obj]:
-                Obj[Key] extends object
-                    ? Obj[Key] extends Function
-                        ? Obj[Key] 
-                        : DeepReadonly2<Obj[Key]>
-                    : Obj[Key]
-        }
-        : never;
-type DeepReadonlyResult2 = DeepReadonly2<obj>;  // 因为 ts 的类型只有被用到的时候才会做计算
+type DeepReadonly2<Obj extends Record<string, any>> = Obj extends any
+  ? {
+      readonly [Key in keyof Obj]: Obj[Key] extends object
+        ? Obj[Key] extends Function
+          ? Obj[Key]
+          : DeepReadonly2<Obj[Key]>
+        : Obj[Key];
+    }
+  : never;
+type DeepReadonlyResult2 = DeepReadonly2<obj>; // 因为 ts 的类型只有被用到的时候才会做计算
