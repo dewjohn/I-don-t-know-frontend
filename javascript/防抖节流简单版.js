@@ -15,10 +15,10 @@ function debounce(fn, delay){
 
 function throttle(fn, delay){
   let lastTime = Date.now()
-  return function(){
+  return function(...args){
     let curTime = Date.now()
     if(curTime - lastTime >= delay){
-      fn()
+      fn.call(fn, ...args)
       lastTime = curTime
     }
   }

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    [foo] {
+      color: #bbb;
+    }
+    /* 以 foo 命名的属性，并且该属性是一个以空格为分隔的值的列表，至少一个值为 abc */
+    [foo~='abc'] {
+      color: red;
+    }
+    /* 以 foo 命名的属性，并且属性包含asd */
+    [foo*='asd'] {
+      color: blue;
+    }
+    /* 以 foo 命名的属性，并且属性的前缀以zh或者zh- */
+    [foo|='zh'] {
+      color: brown;
+    }
+    /* 以 foo 命名的属性，并且属性的开头以prefix */
+    [foo^='prefix'] {
+      color: chocolate;
+    }
+    /* 以 foo 命名的属性，并且属性的值的后缀是end */
+    [foo$='end'] {
+      color: cyan;
+    }
+  </style>
+  <body>
+    <div foo>hello world</div>
+    <div foo="asd">hello world</div>
+    <div foo="abc def">hello world</div>
+    <div foo="asdabcabc">hello world</div>
+    <div foo="zh-cn">hello world</div>
+    <div foo="prefix asd">hello world</div>
+    <div foo="asdend">hello world</div>
+  </body>
+</html>

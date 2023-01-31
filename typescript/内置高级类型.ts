@@ -122,7 +122,7 @@ type MyExclude<T, U> = T extends U ? never : T;
 // 原理是因为当联合类型当作为类型参数出现在条件类型左边时，会触发分布式条件类型，会分散成单个类型传入
 type MyExcludeRes = MyExclude<'a' | 'b' | 'c', 'b'>; // "a" | "c"
 
-// Extract 保留 Exclude的反过来
+// Extract 保留联合类型的部分类型，Exclude的反过来
 type MyExtract<T, U> = T extends U ? T : never;
 
 type MyExtractRes = MyExtract<'a' | 'b' | 'c', 'b'>; // "b"

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    ul > li {
+      color: red;
+    }
+    /* 后代选择器会包括子代孙代曾孙带。。。 */
+    .first p {
+      color: blue; 
+    }
+    /* 子选择器只会选择儿子 */
+    .second > p {
+      color: brown;
+    }
+  </style>
+  <body>
+    <ul>
+      <li>asd</li>
+      <li>asd</li>
+      <li>asd</li>
+      <li>asd</li>
+      <li>asd</li>
+    </ul>
+    <div class="first">
+      <div class="second">
+        <p>子代</p>
+        <div>
+          <p>孙代</p>
+          <div>
+            <p>曾孙</p>
+          </div>
+        </div>
+      </div>
+      <div class="third">
+        <p>兄弟</p>
+      </div>
+    </div>
+  </body>
+</html>
