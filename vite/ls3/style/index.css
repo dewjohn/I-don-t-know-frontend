@@ -1,0 +1,22 @@
+/* vite 自带css处理
+1. vite读取index.js 依赖 index.css
+2. 直接使用fs模块去读取index.css内容
+3. 直接创建一个style标签，将index.css中文件内容直接copy进style标签里
+4. 将style标签插入到index.html的head中 
+5. 将该css文件内容直接替换成js脚本（方便热更新和css模块化），同时设置Content-Type设置为 text/javascript，让浏览器
+以js脚本形式执行css
+*/
+
+.App {
+  height: 100vh;
+  background: red;
+}
+
+/**
+1. module.css
+2. 它会所有类名按照一定规则替换 footer --> footer_1ed2r_
+3. 同时创建一个映射对象 { footer: "footer_1ed2r_" }
+4. 将替换的内容塞进style标签里，然后放在head标签中
+5. 将 footer.component.css 内容全部抹除，替换成js脚本
+6. 在脚本中将映射对象默认导出
+**/

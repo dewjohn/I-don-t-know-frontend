@@ -1,21 +1,19 @@
 {
-  "name": "ls1",
+  "name": "ls3",
   "version": "1.0.0",
-  "keywords": [],
-  "main": "index.js",
-  "author": "",
-  "license": "ISC",
   "description": "",
+  "main": "index.js",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
     "vite": "^4.1.1"
   },
   "dependencies": {
-    "less": "^4.1.3",
-    "lodash": "^4.17.21"
+    "less": "^4.1.3"
   }
 }
