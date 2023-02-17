@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import KeyPress from './components/keyPress';
+import MyForm from './components/MyForm';
+import MyForm2 from './components/MyForm2';
 import Theme from './components/theme';
 import Timer from './components/timer';
 import UseEffect from './components/useEffect';
@@ -20,22 +23,27 @@ function App() {
   // console.log(size);
   console.log(y);
   return (
-    <div
-      className='App'
-      style={{
-        height: '200vh',
-      }}
-    >
-      <Timer />
-      <Theme />
-      <UseEffect />
-      <div>
-        <p>{count}</p>
-        <button onClick={decrease}>-</button>
-        <button onClick={increase}>+</button>
-        <button onClick={reset}>reset</button>
+    <>
+      <div
+        className='App'
+        style={{
+          height: '200vh',
+        }}
+      >
+        <Timer />
+        <Theme />
+        <UseEffect />
+        <div>
+          <p>{count}</p>
+          <button onClick={decrease}>-</button>
+          <button onClick={increase}>+</button>
+          <button onClick={reset}>reset</button>
+        </div>
       </div>
-    </div>
+      <KeyPress />
+      <MyForm />
+      <MyForm2 />
+    </>
   );
 }
 

@@ -1,6 +1,10 @@
 import { useCallback, useState } from 'react';
 
-const useAsync = ({ asyncFunction }: any) => {
+interface Iprops {
+  asyncFunction: any;
+}
+
+const useAsync = (asyncFunction: any) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -19,7 +23,7 @@ const useAsync = ({ asyncFunction }: any) => {
         setLoading(false);
       });
   }, [asyncFunction]);
-  return [execute, loading, data, error];
+  return { execute, loading, data, error };
 };
 
 export default useAsync;
