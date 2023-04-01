@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import KeyPress from './components/keyPress';
+import Ls1 from './components/ls1';
 import MyForm from './components/MyForm';
 import MyForm2 from './components/MyForm2';
 import Theme from './components/theme';
@@ -24,7 +25,7 @@ function App() {
   console.log(y);
   return (
     <>
-      <div
+      {/* <div
         className='App'
         style={{
           height: '200vh',
@@ -42,7 +43,8 @@ function App() {
       </div>
       <KeyPress />
       <MyForm />
-      <MyForm2 />
+      <MyForm2 /> */}
+      <Ls1 />
     </>
   );
 }
