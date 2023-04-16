@@ -1,6 +1,7 @@
-import { defineConfig } from 'vite';
-import ViteAlias from './plugins/ViteAlias';
-
+import { defineConfig } from "vite";
+import { createHtmlPlugin } from "vite-plugin-html";
+import ViteAlias from "./plugins/ViteAlias";
+import VitePluginMock from "./plugins/VitePluginMock";
 
 export default defineConfig({
   optimizeDeps: {
@@ -13,7 +14,7 @@ export default defineConfig({
       output: {
         // 控制输出
         // 在 rollup 中 hash指的是将你的文件名和文件内容进行组合计算得出的结果
-        assetFileNames: '[hash].[name].[ext]',
+        assetFileNames: "[hash].[name].[ext]",
       },
     },
     assetsInlineLimit: 4096, // 4kb 小于4kb就转base64
@@ -22,6 +23,14 @@ export default defineConfig({
     emptyOutDir: true, // 每次打包前先清除输出目录
   },
   plugins: [
-    ViteAlias()
-  ]
+    ViteAlias(),
+    VitePluginMock(),
+    createHtmlPlugin({
+      inject: {
+        data: {
+          title: "主页",
+        },
+      },
+    }),
+  ],
 });

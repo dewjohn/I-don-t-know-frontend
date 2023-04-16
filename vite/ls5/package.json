@@ -12,6 +12,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vite": "^4.1.1"
+    "vite": "^4.1.1",
+    "vite-plugin-html": "^3.2.0"
+  },
+  "dependencies": {
+    "mockjs": "^1.1.0"
   }
 }
