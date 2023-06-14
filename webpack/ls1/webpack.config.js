@@ -5,13 +5,19 @@ const htmlWebpackPlugin = require('html-webpack-plugin')
  * @type { import('webpack').Configuration }
  */
 module.exports = {
-  mode: 'development',
-  entry: './src/index.js',
-  output: {
-    filename: 'builder.js',
-    path: path.resolve(__dirname, './build')
-  },
-  plugins: [
-    new htmlWebpackPlugin()
-  ]
+	mode: 'development',
+	entry: {
+		index: {
+			import: './src/index.js',
+		},
+		main: {
+			import: './src/main.js',
+		},
+	},
+	output: {
+		path: path.resolve(__dirname, './build'),
+		filename: '[name]-builder.js',
+		clean: true,
+	},
+	plugins: [new htmlWebpackPlugin()],
 }
