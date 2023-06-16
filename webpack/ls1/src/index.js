@@ -16,9 +16,17 @@ app.appendChild(btn1)
 app.appendChild(btn2)
 
 btn1.onclick = function () {
-	import('./route/about')
+	import(
+		/* webpackChunkName: "about" */
+		/* webpackPrefetch: true */
+		'./route/about'
+	)
 }
 
 btn2.onclick = function () {
-	import('./route/category')
+	import(
+		/* webpackChunkName: "category" */
+		/* webpackPrefetch: true */
+		'./route/category'
+	)
 }
