@@ -1,5 +1,4 @@
 const path = require('path')
-const htmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TeserWebpackPlugin = require('terser-webpack-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
@@ -9,25 +8,7 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
  */
 module.exports = {
 	mode: 'production',
-	entry: {
-		index: {
-			import: './src/index.js',
-		},
-		main: {
-			import: './src/main.js',
-		},
-	},
-	output: {
-		clean: true,
-		path: path.resolve(__dirname, './build'),
-		filename: 'js/[name]-[contenthash:6].js',
-		chunkFilename: 'js/[name]-chunk.js', // 单独对分包文件进行命名
-	},
 	// 排除某些包不进行打包
-	externals: {
-		react: 'React',
-		axios: 'axios',
-	},
 	optimization: {
 		chunkIds: 'named', // 对分包进行命名
 		splitChunks: {
@@ -69,7 +50,6 @@ module.exports = {
 		],
 	},
 	plugins: [
-		new htmlWebpackPlugin(),
 		new MiniCssExtractPlugin({
 			filename: 'style/[name]-[contenthash:6].css',
 		}),
