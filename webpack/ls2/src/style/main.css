@@ -9,3 +9,9 @@ body {
 button {
 	margin: 1rem;
 }
+
+.title {
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin: 1rem;
+}

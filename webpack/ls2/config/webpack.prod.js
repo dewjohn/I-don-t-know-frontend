@@ -1,7 +1,9 @@
 const path = require('path')
+const glob = require('glob')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TeserWebpackPlugin = require('terser-webpack-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const PurgeCSSPlugin = require('purgecss-webpack-plugin')
 
 /**
  * @type { import('webpack').Configuration }
@@ -52,6 +54,10 @@ module.exports = {
 	plugins: [
 		new MiniCssExtractPlugin({
 			filename: 'style/[name]-[contenthash:6].css',
+		}),
+		// 对css进行tree-shaking
+		new PurgeCSSPlugin({
+			paths: glob.sync(path.dirname(__dirname) + '/src/**/*', { nodir: true }), // src下的所有文件
 		}),
 	],
 }
