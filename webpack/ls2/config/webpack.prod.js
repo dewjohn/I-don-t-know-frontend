@@ -3,7 +3,9 @@ const glob = require('glob')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TeserWebpackPlugin = require('terser-webpack-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
-const PurgeCSSPlugin = require('purgecss-webpack-plugin')
+const { PurgeCSSPlugin } = require('purgecss-webpack-plugin')
+const compressionWebpackPlugin = require('compression-webpack-plugin')
+const webpack = require('webpack')
 
 /**
  * @type { import('webpack').Configuration }
@@ -58,6 +60,14 @@ module.exports = {
 		// 对css进行tree-shaking
 		new PurgeCSSPlugin({
 			paths: glob.sync(path.dirname(__dirname) + '/src/**/*', { nodir: true }), // src下的所有文件
+		}),
+		// 作用于提升打包速度
+		new webpack.optimize.ModuleConcatenationPlugin(),
+		// 开启gzip压缩
+		new compressionWebpackPlugin({
+			test: /\.(js|css|html|svg)$/,
+			minRatio: 0.8, // 压缩比例
+			algorithm: 'gzip',
 		}),
 	],
 }

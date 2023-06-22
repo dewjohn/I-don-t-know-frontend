@@ -3,6 +3,7 @@ const htmlWebpackPlugin = require('html-webpack-plugin')
 const { merge } = require('webpack-merge')
 const devConfig = require('./webpack.dev')
 const prodConfig = require('./webpack.prod')
+const BunderAnalyzerPlugin = require('webpack-bundle-analyzer')
 
 /**
  * @type { import('webpack').Configuration }
@@ -27,7 +28,14 @@ const commonConfig = {
 		react: 'React',
 		axios: 'axios',
 	},
-	plugins: [new htmlWebpackPlugin()],
+	plugins: [
+		new htmlWebpackPlugin({
+			template: './index.html',
+			cache: true,
+			minify: 'auto',
+		}),
+		new BunderAnalyzerPlugin.BundleAnalyzerPlugin(),
+	],
 }
 
 module.exports = function (ENV) {
