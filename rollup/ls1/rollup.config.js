@@ -3,6 +3,7 @@ const commonjs = require('@rollup/plugin-commonjs')
 const nodeResolve = require('@rollup/plugin-node-resolve')
 const { babel } = require('@rollup/plugin-babel')
 const terser = require('@rollup/plugin-terser')
+const postcss = require('rollup-plugin-postcss')
 
 module.exports = {
 	input: './lib/index.js',
@@ -25,5 +26,6 @@ module.exports = {
 			exclude: 'node_modules/**', // 排除node_modules里的模块
 		}), // 用于打包ES6模块
 		terser(), // 用于压缩代码
+		postcss(), // 用于打包css
 	],
 }

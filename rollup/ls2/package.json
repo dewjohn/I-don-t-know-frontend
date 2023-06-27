@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c --environment NODE_ENV:production",
+    "serve": "rollup -c -w --environment NODE_ENV:development"
   },
   "keywords": [],
   "author": "",
@@ -16,8 +17,11 @@
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@rollup/plugin-terser": "^0.4.3",
     "postcss": "^8.4.24",
+    "postcss-preset-env": "^8.5.1",
     "rollup": "^3.25.1",
-    "rollup-plugin-postcss": "^4.0.2"
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-serve": "^2.0.2"
   },
   "dependencies": {
     "lodash": "^4.17.21"

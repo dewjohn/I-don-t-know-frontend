@@ -1,5 +1,4 @@
 import { add, subtract } from './utils/math'
-import _ from 'lodash'
 import { format } from './format/index'
 import './style/index.css'
 
@@ -22,14 +21,11 @@ console.log(subtract(456, 123))
 // console.log(_.join(['a', 'b', 'c'], '~')) // 没有处理lodash是因为lodash在node_modules里，rollup默认只支持ES6模块，而lodash是commonjs模块，所以需要配置
 console.log(format())
 
-foo()
-bar()
-baz()()
 
-const title = document.createElement('div')
+const titleEl = document.createElement('div')
 
-title.style = 'title'
+titleEl.className = 'title'
 
-title.textContent = '标题'
+titleEl.textContent = 'hello world'
 
-document.body.appendChild(title)
+document.body.append(titleEl)
