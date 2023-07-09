@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<canvas id="cvs" width="500" height="500"></canvas>
+		<script>
+			const cvs = document.getElementById('cvs')
+			const ctx = cvs.getContext('2d')
+			// 使用 rect() 方法绘制矩形
+			// strokeRect() 和 fillRect() 这两个方法调用后会立即绘制；rect() 方法被调用后，不会立刻绘制矩形，而是需要调用 stroke() 或 fill() 辅助渲染。
+			ctx.strokeStyle = 'pink'
+			ctx.fillStyle = 'orange'
+			ctx.rect(50, 50, 150, 70)
+			ctx.stroke()
+
+      // 清空矩形
+      ctx.clearRect(40, 40, 140, 60)
+
+      // 清空画布
+      // ctx.clearRect(0, 0, 500, 500)
+		</script>
+	</body>
+</html>

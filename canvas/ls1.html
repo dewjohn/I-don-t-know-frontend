@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<canvas id="cvs" width="300" height="300"></canvas>
+    <!-- width和height属性设置canvas的宽高
+    不能用css设置canvas的宽高，内容会被拉伸 -->
+		<script>
+			// 获取canvas对象
+			const cvs = document.querySelector('#cvs')
+      cvs.style.border = '1px solid #000'
+			// 获取canvas对象的上下文
+			const ctx = cvs.getContext('2d')
+			// 绘制矩形
+			ctx.moveTo(50, 100) // 起点坐标
+			ctx.lineTo(200, 50) // 终点坐标
+			ctx.stroke() // 绘制
+      // 两条直线
+      ctx.moveTo(50, 200)
+      ctx.lineTo(200, 150)
+      ctx.stroke()
+		</script>
+	</body>
+</html>

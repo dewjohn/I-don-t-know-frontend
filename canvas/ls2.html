@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<canvas id="cvs" width="300" height="300"></canvas>
+		<script>
+			const cvs = document.getElementById('cvs')
+			cvs.style.border = '1px solid #000'
+			const ctx = cvs.getContext('2d')
+			ctx.moveTo(50, 100)
+			ctx.lineTo(200, 50)
+			ctx.stroke()
+
+			// 绘制多条路径时，还有设置线段样式，通常需要开辟新路径，否则当你只给一条线设置样式，其他也会污染
+			ctx.beginPath() // 重新开辟一个路径
+			ctx.moveTo(50, 200)
+			ctx.lineTo(300, 100)
+			// 修改直线的宽度
+			ctx.lineWidth = 20
+			// 修改直线的颜色
+			ctx.strokeStyle = 'pink'
+			// 修改直线两端的样式
+			ctx.lineCap = 'round' // 默认值是butt；圆形：round；方形：square
+			ctx.stroke()
+		</script>
+	</body>
+</html>

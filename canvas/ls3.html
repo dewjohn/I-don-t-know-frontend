@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <canvas id="cvs" width="500" height="500"></canvas>
+  <script>
+    const cvs = document.querySelector('#cvs')
+    const ctx = cvs.getContext('2d')
+    // 折线
+    ctx.moveTo(50, 100)
+    ctx.lineTo(200, 50)
+    ctx.lineTo(300, 100)
+    ctx.lineTo(400, 50)
+    ctx.stroke()
+  </script>
+</body>
+</html>
