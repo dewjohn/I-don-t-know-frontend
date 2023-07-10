@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<canvas id="cvs" width="500" height="500"></canvas>
+		<script>
+			const cvs = document.getElementById('cvs')
+			const ctx = cvs.getContext('2d')
+			ctx.font = '30px Arial'
+			ctx.strokeStyle = 'red' // 设置描边颜色
+			ctx.fillStyle = 'blue' // 设置填充颜色
+			// ctx.strokeText('Hello World', 10, 50)
+			ctx.fillText('Hello World', 10, 50)
+
+			// 获取文本长度
+			let text = 'hello world 你好 世界'
+			ctx.font = 'bold 30px Arial'
+			ctx.textAlign = 'left' // 左对齐
+			ctx.fillText(text, 10, 100)
+			console.log(ctx.measureText(text).width)
+		</script>
+	</body>
+</html>

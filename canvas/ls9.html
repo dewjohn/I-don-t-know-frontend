@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			img {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="./image/avatar.jpg" alt="avatar" />
+		<canvas id="cvs" width="500" height="500"></canvas>
+		<script>
+			// 渲染图片
+			const cvs = document.getElementById('cvs')
+			const ctx = cvs.getContext('2d')
+			// 1. 在js里加载图片再渲染
+			// 创建img标签
+			const img = new Image()
+			// 引入照片等待加载完成
+			img.src = './image/avatar.jpg'
+			img.onload = () => {
+				// 使用drawImage方法渲染
+				ctx.drawImage(img, 100, 100, 50, 50)
+			}
+			// 2. 把dom里的图片拿到canvas里渲染
+			const imageDom = document.querySelector('img')
+			ctx.drawImage(imageDom, 200, 200, 50, 50)
+		</script>
+	</body>
+</html>
