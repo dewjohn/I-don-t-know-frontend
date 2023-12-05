@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import KeyPress from './components/keyPress';
-import Ls1 from './components/ls1';
+// import Ls1 from './components/ls1';
 import MyForm from './components/MyForm';
 import MyForm2 from './components/MyForm2';
 import Theme from './components/theme';
@@ -9,6 +9,7 @@ import UseEffect from './components/useEffect';
 import useCounter from './hooks/useCounter';
 import useScroll from './hooks/useScroll';
 import useWindowSize from './hooks/useWindowSize';
+import List from './components/List';
 
 interface Icount {
   count: number;
@@ -44,7 +45,7 @@ function App() {
       <KeyPress />
       <MyForm />
       <MyForm2 /> */}
-      <Ls1 />
+      <List />
     </>
   );
 }

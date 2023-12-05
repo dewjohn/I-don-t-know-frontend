@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<a href="#/a">a 应用</a>
+		<a href="#/b">b 应用</a>
+		<script type="module">
+			import { registerApplication, start } from './single-spa.js';
+			let app1 = {
+				bootstrap: [
+					async () => console.log('app1 bootstrap1'),
+					async () => console.log('app1 bootstrap2'),
+				],
+				mount: [
+					async (props) => {
+						console.log('app1 mount1', props);
+					},
+					async (props) => {
+						console.log('app1 mount2', props);
+					},
+					async (props) => {
+						console.log('app1 mount3', props);
+					},
+				],
+				unmount: [
+					async () => {
+						console.log('app1 unmount');
+					},
+				],
+			};
+			let app2 = {
+				bootstrap: [
+					async () => console.log('app2 bootstrap1'),
+					async () => console.log('app2 bootstrap2'),
+				],
+				mount: [
+					async (props) => {
+						console.log('app2 mount1', props);
+					},
+					async (props) => {
+						console.log('app2 mount2', props);
+					},
+				],
+				unmount: [
+					async () => {
+						console.log('app2 unmount');
+					},
+				],
+			};
+			registerApplication(
+				'a',
+				async () => app1,
+				(location) => location.hash.startsWith('#/a'),
+				{ a: 1 }
+			);
+			registerApplication(
+				'b',
+				async () => app2,
+				(location) => location.hash.startsWith('#/b'),
+				{ a: 2 }
+			);
+			// debugger
+			start();
+		</script>
+	</body>
+</html>

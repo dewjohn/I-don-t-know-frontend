@@ -90,11 +90,19 @@
 
 // console.log(fn(1, 2, 3, 4, 5)(3, 5));
 
-const arr = [1, 2, 3, 4];
+// const arr = [1, 2, 3, 4];
 
-let total = arr.reduce((acc, cur, index) => {
-	console.log(console.log(acc, cur, index));
-	return acc + cur;
-}, 0);
+// let total = arr.reduce((acc, cur, index) => {
+// 	console.log(console.log(acc, cur, index));
+// 	return acc + cur;
+// }, 0);
 
-console.log(total)
+// console.log(total)
+debugger
+{
+	function foo(a){}
+	foo = 1
+	function foo(b){}
+	foo = 2
+}
+console.log(foo)
