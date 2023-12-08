@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Document</title>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+
+			.outer {
+				background-color: #ccc;
+				width: 200px;
+				/* overflow: hidden; */
+			}
+			.outer div {
+				width: 100px;
+				margin: 10px 20px;
+				background-color: red;
+				width: 100px;
+				height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="outer">
+			<div style="float: left"></div>
+			<div style="overflow: hidden"></div>
+		</div>
+	</body>
+</html>
